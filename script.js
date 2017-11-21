@@ -1,41 +1,55 @@
-var samplePet = "reksio";
-var samplePet2 = "kaktus";
-var shelterLimit = 3;
+var statusDiv = document.getElementById('statusDiv');
+var addPetInput = document.getElementById('addPetInput');
+var remPetInput = document.getElementById('remPetInput');
+var selectPet = document.getElementById('selectPet');
+
 
 var shelter = new Array();
+var shelterLimit = 3;
+
+// buttons
+document.getElementById('statusBtn').addEventListener('click', function () {
+    status();
+})
+document.getElementById('addPetBtn').addEventListener('click', function () {
+    // check if there is any empty place
+
+    addPet(addPetInput.value);
+//    status();
+})
+document.getElementById('remPetBtn').addEventListener('click', function () {
+    removePet(remPetInput.value);
+//    status();
+})
 
 
 
-function addPet() {
 
-    shelter.push(samplePet);
-    console.log("Dodano nowego zwierzaka!");
-    
-    document.write("<b>Po dodaniu</b><br>")
-    
+
+function addPet(petName) {
     // Limiting array shelter
-    if (shelter.length > shelterLimit) {
-       
-       shelter.length = shelterLimit; 
-       document.write("Schronisko jest przepełnione, niestety nie możemy przyjąć zwierzaka <hr>")
-   } 
-        status();
-}
-
-function removePet() {
-    shelter.shift();
-    document.write("<b>Po usunięciu</b><br>")
+    if (shelter.length >= shelterLimit) {
+        statusDiv.innerHTML = "<p class='red'></p>Schronisko jest przepełnione, nie przyjmujemy już więcej zwierząt!<hr>"   
+    } 
+    else {
+        statusDiv.innerHTML = "<b>Dodano: </b>" + petName + "<br>";
+        shelter.push(petName); //    console.log("Dodano nowego zwierzaka!");
+        selectPet.innerHTML += "<option value="+shelter.length+">"+petName+"</option>";
+    }
     status();
 }
 
+function removePet(petName) {
+    shelter.shift(petName);
+    statusDiv.innerHTML = "<b>Po usunięciu</b><br>";
+}
+
 function status() {
-    
+
     if (shelter.length <= 0) {
-        document.write("Schronisko jest puste! <hr>");
+        statusDiv.innerHTML = "Schronisko jest puste! <hr>";
+    } else {
+        statusDiv.innerHTML = "Miejsca w shronisku: " + shelter.length + "/" + shelterLimit + "<br>" + "Zwierzęta w schronisku: " + shelter + "<hr>";
     }
-    else {
-        document.write("Stan shroniska: "+shelter.length+"/"+shelterLimit+"<br>");
-        document.write("Zwierzęta w schronisku: "+shelter+"<hr>");
-    }
-    
+
 }
