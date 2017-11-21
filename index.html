@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Menadżer schroniska</title>
     <style>
         p:first-of-type {
             font-size: 1.5em;
-            line-height: 0px;
-            
+            font-weight: bold;
         }
+
+        .main input {
+            margin: 10px 0;
+        }
+        .btn {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .red {
+            background-color: red;
+            font-weight: bold;
+        }
+        
     </style>
 </head>
+
 <body>
-   <h1>Menadżer schroniska</h1>
-   <hr>
+    <h1>Menadżer schroniska</h1>
+    <hr>
     <p>Dostępne funkcje: </p>
     <ul>
         <li><b>status()</b> //wyświetla status schroniska</li>
@@ -21,8 +36,26 @@
         <li><b>removePet()</b> //usuwa zwierzę ze schroniska i pokazuje status</li>
     </ul>
     <hr>
+
+    <section class="main" id="main">
+        <button type="button" id="addPetBtn" class="btn ">Dodaj zwierzaka</button>
+            <input type="text" id="addPetInput" autofocus>
+            
+        <button type="button" id="remPetBtn" class="btn ">Usuń zwierzaka</button>
+            <select name="pet" id="selectPet"></select>
+            <input type='search' id="remPetInput" autofocus>
+            
+           
+        <button type="button" id="statusBtn" class="btn ">status schroniska</button>
+    </section>
+        <h2>Status schroniska</h2>
+    <div id="statusDiv" class="statusDiv">
+        
+    </div>
     
+
     <!--skrypty-->
     <script src="script.js"></script>
 </body>
+
 </html>
