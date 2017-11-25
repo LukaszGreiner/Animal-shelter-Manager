@@ -6,56 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Menadżer schroniska</title>
     <style>
-        p:first-of-type {
+        main p {
             font-size: 1.5em;
-            font-weight: bold;
+
         }
 
         .main input {
             margin: 10px 0;
         }
+
         .btn {
             display: inline-block;
             margin-right: 10px;
         }
+
         .red {
-            background-color: red;
+            color: red;
+            text-decoration: underline;
             font-weight: bold;
         }
+         
         
     </style>
 </head>
 
 <body>
-    <h1>Menadżer schroniska</h1>
-    <hr>
-    <p>Dostępne funkcje: </p>
-    <ul>
-        <li><b>status()</b> //wyświetla status schroniska</li>
-        <li><b>addPet()</b> //dodaje zwierzę do shroniska i pokazuje status</li>
-        <li><b>removePet()</b> //usuwa zwierzę ze schroniska i pokazuje status</li>
-    </ul>
-    <hr>
+    <article>
 
-    <section class="main" id="main">
-        <button type="button" id="addPetBtn" class="btn ">Dodaj zwierzaka</button>
-            <input type="text" id="addPetInput" autofocus>
-            
-        <button type="button" id="remPetBtn" class="btn ">Usuń zwierzaka</button>
-            <select name="pet" id="selectPet"></select>
-            <input type='search' id="remPetInput" autofocus>
-            
-           
-        <button type="button" id="statusBtn" class="btn ">status schroniska</button>
-    </section>
-        <h2>Status schroniska</h2>
-    <div id="statusDiv" class="statusDiv">
-        
-    </div>
-    
+        <section>
+            <h1>Menadżer schroniska</h1>
+            <hr>
+            <p>Dostępne funkcje: </p>
+            <ul>
+                <li><b>status()</b> //wyświetla status schroniska</li>
+                <li><b>addPet()</b> //dodaje zwierzę do shroniska i pokazuje status</li>
+                <li><b>removePet()</b> //usuwa zwierzę ze schroniska i pokazuje status</li>
+            </ul>
+            <hr>
+        </section>
+        <section class="main" id="main">
+            <button type="button" id="addPetBtn" class="btn ">Dodaj zwierzaka</button>
+            <input type="text" id="petNameInput" autofocus>
+            <input type="text" id="petAgeInput" autofocus>
+            <!-- Inne wartości niż imię-->
+
+            <button type="button" id="remPetBtn" class="btn ">Usuń zwierzaka</button>
+            <select name="pet" id="selectPet" onchange="change()">
+                <option value="">Wybierz zwierze</option>
+            </select>
+            <input type='search' id="remPetInput">
+
+
+            <button type="button" id="statusBtn" class="btn ">status schroniska</button>
+        </section>
+
+        <section class="statusSect">
+            <h2>Status schroniska</h2>
+            <div id="statusDiv" class="statusDiv">
+                <p>Brak danych</p>
+            </div>
+
+            <table id="statusTable" border="1">
+                <tr>
+                    <th>Numer</th>
+                    <th>Imię</th>
+                    <th>Wiek</th>
+                    <th>sekretne id</th>
+                </tr>
+            </table>
+
+
+        </section>
+
+    </article>
 
     <!--skrypty-->
+    <!--
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+-->
     <script src="script.js"></script>
+    <script src="data.js"></script>
 </body>
 
 </html>
