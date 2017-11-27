@@ -38,9 +38,11 @@
             <hr>
             <p>Dostępne funkcje: </p>
             <ul>
-                <li><b>status()</b> //wyświetla status schroniska</li>
-                <li><b>addPet()</b> //dodaje zwierzę do shroniska i pokazuje status</li>
-                <li><b>removePet()</b> //usuwa zwierzę ze schroniska i pokazuje status</li>
+                <li><b>status()</b> // wyświetla status schroniska</li>
+                <li><b>checkInputs</b> // jeśli inputy są wypełnione zwraca <b>true</b>, w przeciwnym wypadku zwraca <b>false</b></li>
+                <li><b>addPet()</b> // dodaje zwierzę do shroniska oraz pokazuje status</li>
+                <li><b>creatPetObj()</b> // tworzy objekt zawierający imię, wiek oraz unikalne id</li>
+                <li><b>removePet()</b> // usuwa zwierzę ze schroniska oraz pokazuje status</li>
             </ul>
             <hr>
         </section>
@@ -66,7 +68,7 @@
                 <p>Brak danych</p>
             </div>
 
-            <table id="statusTable" border="1">
+            <table id="animalsTable" border="1">
                 <tr>
                     <th>Numer</th>
                     <th>Imię</th>
